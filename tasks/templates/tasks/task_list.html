@@ -107,7 +107,7 @@
     </form>
     <ul>
         {% for task in tasks %}
-        <li style="text-decoration: {{ 'line-through' if task.completed else 'none' }}">
+        <li style="text-decoration: {% if task.completed %}line-through{% else %}none{% endif %};">
             {{ task.title }}
             <span>
                 <a href="{% url 'toggle_task' task.id %}">[Toggle]</a>
